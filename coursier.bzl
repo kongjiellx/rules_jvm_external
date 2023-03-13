@@ -23,7 +23,6 @@ load("//private:java_utilities.bzl", "build_java_argsfile_content", "parse_java_
 load("//private:proxy.bzl", "get_java_proxy_args")
 load(
     "//private:versions.bzl",
-    "COURSIER_CLI_BAZEL_MIRROR_URL",
     "COURSIER_CLI_GITHUB_ASSET_URL",
     "COURSIER_CLI_SHA256",
 )
@@ -761,7 +760,6 @@ def _coursier_fetch_impl(repository_ctx):
     # Download Coursier's standalone (deploy) jar from Maven repositories.
     coursier_download_urls = [
         COURSIER_CLI_GITHUB_ASSET_URL,
-        COURSIER_CLI_BAZEL_MIRROR_URL,
     ]
 
     coursier_url_from_env = repository_ctx.os.environ.get("COURSIER_URL")
