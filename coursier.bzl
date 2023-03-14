@@ -456,8 +456,6 @@ def _coursier_fetch_impl(repository_ctx):
     exec_result = repository_ctx.execute(
         _generate_java_jar_command(repository_ctx, repository_ctx.path("coursier")),
     )
-    if exec_result.return_code != 0:
-        fail("Unable to run coursier: " + exec_result.stderr)
 
     _windows_check(repository_ctx)
 
