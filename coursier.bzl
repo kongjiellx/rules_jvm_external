@@ -18,7 +18,6 @@ load("//:private/dependency_tree_parser.bzl", "JETIFY_INCLUDE_LIST_JETIFY_ALL", 
 load("//:private/coursier_utilities.bzl", "SUPPORTED_PACKAGING_TYPES", "escape")
 load(
     "//:private/versions.bzl",
-    "COURSIER_CLI_BAZEL_MIRROR_URL",
     "COURSIER_CLI_GITHUB_ASSET_URL",
     "COURSIER_CLI_SHA256",
 )
@@ -451,7 +450,6 @@ def _coursier_fetch_impl(repository_ctx):
     # Download Coursier's standalone (deploy) jar from Maven repositories.
     repository_ctx.download([
         COURSIER_CLI_GITHUB_ASSET_URL,
-        COURSIER_CLI_BAZEL_MIRROR_URL,
     ], "coursier", sha256 = COURSIER_CLI_SHA256, executable = True)
 
     # Try running coursier once
